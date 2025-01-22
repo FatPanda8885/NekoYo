@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="270e7a6e-b4d3-4bf9-87ff-f988ff39adb2" name="更改" comment="Finished almost write commands.">
-      <change afterPath="$PROJECT_DIR$/commands.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/serials.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/init.py" beforeDir="false" afterPath="$PROJECT_DIR$/init.py" afterDir="false" />
+    <list default="true" id="270e7a6e-b4d3-4bf9-87ff-f988ff39adb2" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,12 +86,24 @@
       <updated>1737541106063</updated>
       <workItem from="1737541110022" duration="500000" />
       <workItem from="1737542031180" duration="973000" />
-      <workItem from="1737543559994" duration="5320000" />
+      <workItem from="1737543559994" duration="5893000" />
     </task>
+    <task id="LOCAL-00001" summary="Finished almost write commands.">
+      <option name="closed" value="true" />
+      <created>1737548915396</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1737548915396</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Finished almost write commands." />
