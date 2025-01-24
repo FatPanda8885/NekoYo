@@ -107,8 +107,66 @@ def set_repeater_offset(freq):
     elif freq[1] == "-":
         str_freq = freq[1:]
         cat_serial.write(bytes.fromhex("00 00 00 00 49"))
-        cat_serial.write(bytes.fromhex(freq))
+        cat_serial.write(bytes.fromhex(str_freq))
     elif freq == "0":
         cat_serial.write(bytes.fromhex("00 00 00 00 89"))
+        
+def set_ctcss_status(status):
+    # Type:bool
+    # opera code = 0A
+    global cat_serial
+    if status:
+        cat_serial.write(bytes.fromhex("0A 00 00 00 2A"))
+    elif not status:
+        cat_serial.write(bytes.fromhex("0A 00 00 00 8A"))
 
-# CTCSS/DCS set & read status will be finished in the future.
+def set_dcs_status(status):
+    # Type:bool
+    # opera code = 0A
+    global cat_serial
+    if status:
+        cat_serial.write(bytes.fromhex("0A 00 00 00 0A"))
+    elif not status:
+        cat_serial.write(bytes.fromhex("0A 00 00 00 8A"))
+
+def set_ctcss_coder(coder):
+    # Type:String
+    # opera code:0A
+    # e.g.:Decoder on = dec
+    # e.g.:Encoder on = enc
+    # If want to turn it off,please see set_ctcss_status.
+    global cat_serial
+    if coder == "dec":
+        cat_serial.write(bytes.fromhex("0A 00 00 00 3A"))
+    elif coder == "enc":
+        cat_serial.write(bytes.fromhex("0A 00 00 00 4A"))
+
+def set_dcs_coder(coder):
+    # Type:String
+    # opera code:0A
+    # e.g.:Decoder on = dec
+    # e.g.:Encoder on = enc
+    # If want to turn it off,please see set_dcs_status.
+    global cat_serial
+    if coder == "dec":
+        cat_serial.write(bytes.fromhex("0A 00 00 00 0B"))
+    elif coder == "enc":
+        cat_serial.write(bytes.fromhex("0A 00 00 00 0C"))
+
+def set_ctcss_freq(tx, rx):
+    # Type:int
+    # opera code:0B
+    # e.g.:tx = 0885(88.5Hz), rx = 1000(100.0Hz)
+    global cat_serial
+    cat_serial.write(bytes.fromhex(str(tx)+str(rx)+"0B"))
+
+def set_dcs_freq(tx, rx):
+    # Type:int
+    # opera code:0C
+    # e.g.:tx = 0023(023), rx = 0371(371)
+    global cat_serial
+    cat_serial.write(bytes.fromhex(str(tx)+str(rx)+"0C"))
+
+
+
+# Read status will be finished in the future.

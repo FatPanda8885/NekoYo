@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="270e7a6e-b4d3-4bf9-87ff-f988ff39adb2" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/NekoYo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NekoYo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +41,8 @@
   </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;git@github.com:/GAQPanda/NekoYo.git&quot;,
-    &quot;accountId&quot;: &quot;b04598a9-406a-4712-94a7-89ceaff4d888&quot;
+    &quot;url&quot;: &quot;https://github.com/GAQPanda/NekoYo.git&quot;,
+    &quot;accountId&quot;: &quot;d38f2a9b-b534-4740-8b02-eea035de13f6&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -55,6 +58,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Python.setup.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
@@ -64,7 +68,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.language.and.region&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -87,6 +91,11 @@
       <workItem from="1737541110022" duration="500000" />
       <workItem from="1737542031180" duration="973000" />
       <workItem from="1737543559994" duration="5893000" />
+      <workItem from="1737630284151" duration="541000" />
+      <workItem from="1737675293642" duration="310000" />
+      <workItem from="1737675696310" duration="101000" />
+      <workItem from="1737676363244" duration="90000" />
+      <workItem from="1737676496153" duration="922000" />
     </task>
     <task id="LOCAL-00001" summary="Finished almost write commands.">
       <option name="closed" value="true" />
@@ -108,5 +117,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Finished almost write commands." />
     <option name="LAST_COMMIT_MESSAGE" value="Finished almost write commands." />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/NekoYo$setup.coverage" NAME="setup 覆盖结果" MODIFIED="1737630637837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
