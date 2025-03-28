@@ -3,6 +3,24 @@ import serial
 
 # 假设 cat_ser 是已经初始化的串口对象
 cat_serial = cat_ser
+sat_data_rx = "0000000000"
+sat_data_tx = "0000000000"
+real_data = "0000000000"
+# x_freq, tx_freq, rx_mode, tx_mode = "0", "0", "0", "0"
+
+# 在模块顶部定义模式映射字典
+MODE_MAP = {
+    "00": "USB",
+    "01": "LSB",
+    "02": "CW",
+    "03": "CWR",
+    "04": "AM",
+    "08": "FM",
+    "88": "FMN",
+    "0A": "DIG",
+    "0C": "SPEC"
+}
+
 
 def set_lock(lock_status):
     # Type:bool
@@ -167,6 +185,42 @@ def set_dcs_freq(tx, rx):
     global cat_serial
     cat_serial.write(bytes.fromhex(str(tx)+str(rx)+"0C"))
 
-
-
 # Read status will be finished in the future.
+
+def read_rx_freq():
+
+    # operaq code:P1
+    global cat_serial, sat_data_rx, sat_data_tx, real_data# , rx_freq, tx_freq, rx_mode, tx_mode
+    cat_serial.write(bytes.fromhex("00 00 00 00 13"))
+    print("1")
+    data_byte = cat_serial.read(5)
+    data = data_byte.hex()
+    print("2")
+    if data == "":
+        cat_serial.write(bytes.fromhex("00 00 00 00 03"))
+        real_data_byte = cat_serial.read(5)
+        real_data = real_data_byte.hex()
+        sat = True
+    else:
+        cat_serial.write(bytes.fromhex("00 00 00 00 13"))
+        sat_data_rx_byte = cat_serial.read(5)
+        sat_data_rx = sat_data_rx_byte.hex()
+        cat_serial.write(bytes.fromhex("00 00 00 00 23"))
+        sat_data_tx_byte = cat_serial.read(5)
+        sat_data_tx = sat_data_tx_byte.hex()
+        sat = False
+    if sat:
+        rx_freq = real_data[0:6]
+        tx_freq = real_data[0:6]
+        ord_rx_mode = real_data[7:9]
+        ord_tx_mode = real_data[7:9]
+        rx_mode = MODE_MAP.get(ord_rx_mode, "unknown")
+        tx_mode = MODE_MAP.get(ord_tx_mode, "unknown")
+    elif not sat:
+        rx_freq = real_data[0:6]
+        tx_freq = real_data[0:6]
+        ord_rx_mode = real_data[7:9]
+        ord_tx_mode = real_data[7:9]
+        rx_mode = MODE_MAP.get(ord_rx_mode, "unknown")
+        tx_mode = MODE_MAP.get(ord_tx_mode, "unknown")
+    return rx_freq, tx_freq, rx_mode, tx_mode, ord_rx_mode

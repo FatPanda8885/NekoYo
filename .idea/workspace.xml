@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="270e7a6e-b4d3-4bf9-87ff-f988ff39adb2" name="更改" comment="Finished CTCSS/DCS write commands.">
+    <list default="true" id="270e7a6e-b4d3-4bf9-87ff-f988ff39adb2" name="更改" comment="Edited readme.md">
+      <change beforePath="$PROJECT_DIR$/.idea/NekoYo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NekoYo.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/init.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serials.py" beforeDir="false" afterPath="$PROJECT_DIR$/serials.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,10 +37,13 @@
     &quot;assignee&quot;: &quot;GAQPanda&quot;
   }
 }</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="b04598a9-406a-4712-94a7-89ceaff4d888" />
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/GAQPanda/NekoYo.git&quot;,
-    &quot;accountId&quot;: &quot;d38f2a9b-b534-4740-8b02-eea035de13f6&quot;
+    &quot;url&quot;: &quot;git@github.com:/FatPanda8885/NekoYo.git&quot;,
+    &quot;accountId&quot;: &quot;b04598a9-406a-4712-94a7-89ceaff4d888&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -54,7 +59,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Python.setup.executor": "Run",
+    "Python.__init__.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -64,15 +69,15 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PY-243.22562.220" />
-        <option value="bundled-python-sdk-0fc6c617c4bd-9a18a617cbe4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.22562.220" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.26053.29" />
+        <option value="bundled-python-sdk-b1dbf8ef85a6-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.26053.29" />
       </set>
     </attachedChunks>
   </component>
@@ -86,12 +91,16 @@
       <updated>1737541106063</updated>
       <workItem from="1737541110022" duration="500000" />
       <workItem from="1737542031180" duration="973000" />
-      <workItem from="1737543559994" duration="5893000" />
-      <workItem from="1737630284151" duration="541000" />
-      <workItem from="1737675293642" duration="310000" />
-      <workItem from="1737675696310" duration="101000" />
-      <workItem from="1737676363244" duration="90000" />
-      <workItem from="1737676496153" duration="1371000" />
+      <workItem from="1737543559994" duration="6370000" />
+      <workItem from="1740125065229" duration="1167000" />
+      <workItem from="1741951463896" duration="7293000" />
+      <workItem from="1743163500292" duration="278000" />
+      <workItem from="1743164185273" duration="102000" />
+      <workItem from="1743164303712" duration="183000" />
+      <workItem from="1743164499410" duration="86000" />
+      <workItem from="1743164592494" duration="85000" />
+      <workItem from="1743164678993" duration="1235000" />
+      <workItem from="1743165937810" duration="4629000" />
     </task>
     <task id="LOCAL-00001" summary="Finished almost write commands.">
       <option name="closed" value="true" />
@@ -101,13 +110,13 @@
       <option name="project" value="LOCAL" />
       <updated>1737548915396</updated>
     </task>
-    <task id="LOCAL-00002" summary="Finished CTCSS/DCS write commands.">
+    <task id="LOCAL-00002" summary="Edited readme.md">
       <option name="closed" value="true" />
-      <created>1737677536567</created>
+      <created>1737549622904</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1737677536567</updated>
+      <updated>1737549622904</updated>
     </task>
     <option name="localTasksCounter" value="3" />
     <servers />
@@ -118,12 +127,33 @@
   <component name="UpdateCopyrightCheckinHandler">
     <option name="UPDATE_COPYRIGHT" value="true" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="4c405ae2-ccb5-4aed-86ee-64be46cbd1ba" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="4c405ae2-ccb5-4aed-86ee-64be46cbd1ba">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Finished almost write commands." />
-    <MESSAGE value="Finished CTCSS/DCS write commands." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished CTCSS/DCS write commands." />
+    <MESSAGE value="Edited readme.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edited readme.md" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/NekoYo$setup.coverage" NAME="setup 覆盖结果" MODIFIED="1737630637837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/NekoYo$__init__.coverage" NAME="__init__ 覆盖结果" MODIFIED="1743170569080" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

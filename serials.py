@@ -1,7 +1,7 @@
 import serial
 
-ser_port = ""
-ser_baudrate = 0
+ser_port = "COM5"
+ser_baudrate = 4800
 
 def set_port(port):
     global ser_port
@@ -26,6 +26,10 @@ if ser_port == "":
 
 try:
     cat_ser = serial.Serial(set_port(ser_port), set_baudrate(ser_baudrate))
+    cat_ser.setRTS(False)
+    cat_ser.setDTR(False)
+    cat_ser.timeout = 1
+    cat_ser.write(bytes.fromhex("00 00 00 00 00"))
 except:
     print("serial port is not available")
     exit()
