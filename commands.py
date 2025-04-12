@@ -21,7 +21,12 @@ MODE_MAP = {
     "0C": "SPEC"
 }
 
-
+def set_model(model):
+    global spe_format
+    if model == "FT-847":
+        spe_format = True
+    elif model == "others":
+        spe_format = False
 def set_lock(lock_status):
     # Type:bool
     # FT_847 do not support this action
@@ -185,22 +190,21 @@ def set_dcs_freq(tx, rx):
     global cat_serial
     cat_serial.write(bytes.fromhex(str(tx)+str(rx)+"0C"))
 
-# Read status will be finished in the future.
 
-def read_rx_freq():
+def read_freq():
 
     # operaq code:P1
     global cat_serial, sat_data_rx, sat_data_tx, real_data# , rx_freq, tx_freq, rx_mode, tx_mode
-    cat_serial.write(bytes.fromhex("00 00 00 00 13"))
+    cat_serial.write(bytes.fromhex("00 00 00 00 03"))
     print("1")
     data_byte = cat_serial.read(5)
     data = data_byte.hex()
-    print("2")
+    print(data)
     if data == "":
         cat_serial.write(bytes.fromhex("00 00 00 00 03"))
         real_data_byte = cat_serial.read(5)
         real_data = real_data_byte.hex()
-        sat = True
+        sat = False
     else:
         cat_serial.write(bytes.fromhex("00 00 00 00 13"))
         sat_data_rx_byte = cat_serial.read(5)
@@ -208,12 +212,12 @@ def read_rx_freq():
         cat_serial.write(bytes.fromhex("00 00 00 00 23"))
         sat_data_tx_byte = cat_serial.read(5)
         sat_data_tx = sat_data_tx_byte.hex()
-        sat = False
+        sat = True
     if sat:
-        rx_freq = real_data[0:6]
-        tx_freq = real_data[0:6]
-        ord_rx_mode = real_data[7:9]
-        ord_tx_mode = real_data[7:9]
+        rx_freq = sat_data_rx[0:6]
+        tx_freq = sat_data_tx[0:6]
+        ord_rx_mode = sat_data_rx[7:9]
+        ord_tx_mode = sat_data_tx[7:9]
         rx_mode = MODE_MAP.get(ord_rx_mode, "unknown")
         tx_mode = MODE_MAP.get(ord_tx_mode, "unknown")
     elif not sat:
@@ -223,4 +227,76 @@ def read_rx_freq():
         ord_tx_mode = real_data[7:9]
         rx_mode = MODE_MAP.get(ord_rx_mode, "unknown")
         tx_mode = MODE_MAP.get(ord_tx_mode, "unknown")
-    return rx_freq, tx_freq, rx_mode, tx_mode, ord_rx_mode
+    return rx_freq, tx_freq, rx_mode, tx_mode, sat
+
+def read_rx_status():
+    global cat_serial, rx_status, spe_format
+    cat_serial.write(bytes.fromhex("00 00 00 00 E7"))
+    data_byte = cat_serial.read(1)
+    data = data_byte.hex()
+    data_10 = int(data,16)
+    data_bin = '{:08b}'.format(data_10)
+    if spe_format:
+        if data_bin[0] == "1":
+            ptt_status = True
+        elif data_bin[0] == "0":
+            ptt_status = False
+        dummy_data = data_bin[1:3]
+        po_alc_data = data_bin[2:7]
+        return ptt_status, po_alc_data, dummy_data
+    if spe_format is None:
+        if data_bin[0] == "1":
+            sql_status = True
+        elif data_bin[0] == "0":
+            sql_status = False
+        if data_bin[1] == "1":
+            tone_status = False  # Un-Matched
+        elif data_bin[1] == "0":
+            tone_status = True  # Matched
+        if data_bin[2] == "0":
+            disc_status = True  # Centered
+        elif data_bin[2] == "1":
+            disc_status = False #Un-Centered
+        dummy_data = data_bin[3]
+        s_metre = data_bin[4:7]
+        return sql_status, tone_status, disc_status, dummy_data, s_metre
+
+
+def read_tx_status():
+    global cat_serial, rx_status, spe_format
+    cat_serial.write(bytes.fromhex("00 00 00 00 F7"))
+    data_byte = cat_serial.read(1)
+    data = data_byte.hex()
+    data_10 = int(data,16)
+    data_bin = '{:08b}'.format(data_10)
+    if spe_format:
+        if data_bin[0] == "1":
+            sql_status = True
+        elif data_bin[0] == "0":
+            sql_status = False
+        if data_bin[1] == "1":
+            tone_status = False  # Un-Matched
+        elif data_bin[1] == "0":
+            tone_status = True  # Matched
+        if data_bin[2] == "0":
+            disc_status = True  # Centered
+        elif data_bin[2] == "1":
+            disc_status = False #Un-Centered
+        s_meter_data = data_bin[3:7]
+        return sql_status, tone_status, disc_status, s_meter_data
+    if spe_format is None:
+        if data_bin[0] == "1":
+            ptt_status = True
+        elif data_bin[0] == "0":
+            ptt_status = False
+        if data_bin[1] == "1":
+            hi_swr = True   #High
+        elif data_bin[1] == "0":
+            hi_swr = False  # Low
+        if data_bin[2] == "1":
+            split_status = False   #Off
+        elif data_bin[2] == "0":
+            po_alc = True  # On
+        dummy_data = data_bin[3]
+        po_alc_data = data_bin[4:7]
+        return ptt_status, hi_swr, split_status, dummy_data, po_alc_data
